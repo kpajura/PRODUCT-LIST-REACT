@@ -1,0 +1,36 @@
+main {
+    min-height: 75vh;
+    margin: 20px;
+    padding: 20px;
+    width: 50vw;
+    /* border: 2px black solid; */
+}
+
+label {
+    clear: both;
+    float: left;
+    margin-right: 15px;
+}
+
+input {
+    float: right;
+    width: 32vw;
+    margin-bottom: 20px;
+}
+
+select {
+    float: right;
+    width: 25vw;
+    margin-bottom: 20px;
+}
+
+form div {
+    border: 1px black solid;
+    position: relative;
+    display: inline-block;
+    padding: 10px;
+}
+
+span {
+    float: left;
+}

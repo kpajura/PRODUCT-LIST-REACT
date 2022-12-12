@@ -1,0 +1,37 @@
+.header {
+    border-bottom: 1px black solid;
+    padding: 20px 20px 10px 20px;
+    margin: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    min-height: 9vh;
+
+}
+
+.header div {
+    text-align: right;
+
+}
+
+.header h1 {
+    text-align: left;
+    padding: 10px;
+}
+
+.header button {
+    margin: 5px;
+    padding: 5px 10px;
+    background-color: white;
+    border: 2px solid black;
+    font-size: 25px;
+    transition: .5s;
+
+
+}
+
+
+.header button:hover {
+    background-color: black;
+    color: white;
+    cursor: pointer;
+}

@@ -1,0 +1,17 @@
+.product {
+    width: 250px;
+    height: 250px;
+    border: 2px black solid;
+    margin: 20px
+}
+
+
+input.delete-checkbox {
+    display: block;
+    margin: 15px;
+}
+
+p {
+    font-size: 20px;
+    padding-bottom: 10px;
+}

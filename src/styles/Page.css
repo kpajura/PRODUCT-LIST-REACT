@@ -1,0 +1,7 @@
+.list {
+    text-align: center;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    min-height: 80vh;
+}
