@@ -4,4 +4,5 @@
     justify-content: space-around;
     flex-wrap: wrap;
     min-height: 80vh;
+    width: 90vw;
 }

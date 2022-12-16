@@ -12,7 +12,7 @@ label {
     margin-right: 15px;
 }
 
-input {
+form input {
     float: right;
     width: 32vw;
     margin-bottom: 20px;
