@@ -3,6 +3,7 @@ import '../styles/App.css'
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
 import Homepage from './Homepage';
 import Addpage from './Addpage';
+import axios from 'axios';
 
 
 class App extends Component {
@@ -45,6 +46,32 @@ class App extends Component {
         },
     
   } 
+
+  // componentDidMount(){
+  //   axios.get('http://localhost:8888/api/index.php')
+  //   .then(response => response.data)
+  //   .then((data)=> {
+  //     let i = 0;
+  //     let table = []
+  //     while(data[i]){
+  //       table.push(data[i].object);
+  //       i++
+  //     }
+  //     return table
+  // })
+  //   .then((data)=> {
+  //       this.setState({
+  //         objects: [...data]
+  //       })
+  //       console.log(this.state.objects[1].id)
+  //   })
+
+  //   // axios.get(url).then(response => response.data)
+  //   // .then((data) => {
+  //   //   this.setState({ contacts: data })
+  //   //   console.log(this.state.contacts)
+  //   //  })
+  // }
   
   handleCheckboxChange = (id) => {
     console.log('checkbox checked')
@@ -124,7 +151,7 @@ class App extends Component {
   handleAddButton = () => {
     console.log('add')
     // const params = [this.state.object];
-    // axios.post('http://localhost:8888/api/index.php', JSON.stringify(params))
+    
 
     const index = this.state.objects.map((item) => item.id )
     const indexMax = Math.max(...index)
@@ -148,11 +175,8 @@ class App extends Component {
   render() { 
     return (
       <BrowserRouter basename={process.env.PUBLIC_URL}>
-        {/* <div className='App'>
-          <Header add = {this.handleAddButton}/>
-          <ProductList/>
-          <Footer/>
-        </div> */}
+      {/* <BrowserRouter> */}
+
         <Routes>
           <Route path='/' element={<Homepage objects={this.state.objects} change={this.handleCheckboxChange} delete={this.handleDeleteButton}/>}></Route>
           <Route path='addproduct' element={<Addpage object={this.state.object} inputChange={this.handleInputChange} cancel={this.handleCancelButton} save={this.handleAddButton}/>}></Route>
