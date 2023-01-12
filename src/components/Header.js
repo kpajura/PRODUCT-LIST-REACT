@@ -6,7 +6,7 @@ const Header = (props) => {
         <div className="header">
             <h1>Product List</h1>
             <div>
-                <NavLink to="/addproduct"><button>ADD</button></NavLink>
+                <button><NavLink to="/addproduct" id='add-product-btn'>ADD</NavLink></button>
                 <button id='delete-product-btn' onClick={props.delete}>MASS DELETE</button>
             </div>
         </div>

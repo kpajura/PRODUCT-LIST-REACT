@@ -3,7 +3,6 @@ main {
     margin: 20px;
     padding: 20px;
     width: 50vw;
-    /* border: 2px black solid; */
 }
 
 label {
@@ -33,4 +32,19 @@ form div {
 
 span {
     float: left;
+}
+
+
+.errorBox{
+    width: 100%;
+    border: red 2px double;
+    position: relative;
+    display: inline-block;
+    color: red;
+    text-align: center;
+    line-height: 1em;
+}
+
+.errorBox p {
+    padding: 10px;
 }

@@ -8,7 +8,7 @@ const Product = (props) => {
             <p>{props.object.sku}</p>
             <p>{props.object.name}</p>
             <p>{props.object.price}$</p>
-            <p>{props.object.weight ? props.object.weight : (props.object.size ? props.object.size : props.object.dimention)}</p>
+            <p>{props.object.category === 'book' ? `${props.object.weight}KG (kilograms)` : (props.object.category === 'dvd' ? `${props.object.size}MB (megabite)` : `W${props.object.width}xH${props.object.height}xL${props.object.length} (dimnetions WxHxL)`)}</p>
 
         </div>
      );

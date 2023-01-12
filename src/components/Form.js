@@ -1,7 +1,6 @@
 import '../styles/Header.css'
 import '../styles/Form.css'
 import OptionSelected from './OptionSelected';
-// import { NavLink } from 'react-router-dom';
 
 
 const Form = (props) => {
@@ -23,10 +22,13 @@ const Form = (props) => {
                     </select>
 
                     <OptionSelected object = {props.object} change={props.change}/>
-                    {/* <NavLink to="/"><button onClick={props.add}>SAVE</button></NavLink> */}
-
-    
+                    
                 </form>
+                {props.error ? <div className='errorBox'>
+                    <p>
+                        {props.error}
+                    </p>
+                </div> :null}
             </main>
          );
     
