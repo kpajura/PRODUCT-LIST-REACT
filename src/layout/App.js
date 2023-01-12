@@ -8,38 +8,7 @@ import axios from 'axios';
 
 class App extends Component {
   state = {
-    // objects: [
-    //     {
-    //         id:1, sku:'JV2255', price: 1, name: 'Game of Thrones', category: 'book', dimention: null, weight: 'Weight: 1kg', size: null, checked: false
-    //     },
-    //     {
-    //         id:2, sku:'JV2256', price: 15, name: 'GTA5', category: 'dvd', dimention: null, weight: null, size: 'Size: 1MB', checked: false
-    //     },
-    //     {
-    //         id:3, sku:'JV2257', price: 80, name: 'Table', category: 'furniture', dimention: 'Dimention: 120x120x90', weight: null, size: null, checked: false
-    //     },
-    //     {
-    //         id:4, sku:'JV2258', price: 1, name: 'Game of Thrones', category: 'book', dimention: null, weight: 'Weight: 1kg', size: null, checked: false
-    //     },
-    //     {
-    //         id:5, sku:'JV2259', price: 1, name: 'Game of Thrones', category: 'book', dimention: null, weight: 'Weight: 1kg', size: null, checked: false
-    //     },
-    //     {
-    //         id:6, sku:'JV2260', price: 1, name: 'Game of Thrones', category: 'book', dimention: null, weight: 'Weight: 1kg', size: null, checked: false
-    //     },
-    //     {
-    //         id:7, sku:'JV2261', price: 1, name: 'Game of Thrones', category: 'book', dimention: null, weight: 'Weight: 1kg', size: null, checked: false
-    //     },
-    //     {
-    //         id:8, sku:'JV2262', price: 1, name: 'Game of Thrones', category: 'book', dimention: null, weight: 'Weight: 1kg', size: null, checked: false
-    //     },
-    //     {
-    //         id:9, sku:'JV2263', price: 1, name: 'Game of Thrones', category: 'book', dimention: null, weight: 'Weight: 1kg', size: null, checked: false
-    //     },
-        
-        
-    
-    // ], 
+
     object: 
         {
             id:'', sku:'', price: '', name: '', category: '', width: 0, height: 0, length: 0,  weight: 0, size: 0, checked: false
@@ -50,7 +19,7 @@ class App extends Component {
   } 
 
   componentDidMount(){
-    axios.get('http://localhost:3306/api/index.php')
+    axios.get('http://localhost:8888/api/index.php')
     .then(response => response.data)
     .then(data=>{
       this.setState({
@@ -64,7 +33,7 @@ class App extends Component {
   }
 
   updateFunction = () => {
-    axios.get('http://localhost:3306/api/index.php')
+    axios.get('http://localhost:8888/api/index.php')
     .then(response => response.data)
     .then(data=>{
       this.setState({
@@ -101,7 +70,7 @@ class App extends Component {
 
         axios({
               method: 'post',
-              url: 'http://localhost:3306/api/index.php/?delete=' + id
+              url: 'http://localhost:8888/api/index.php/?delete=' + id
           })
           .then(function (response) {
               //handle success
@@ -122,55 +91,55 @@ class App extends Component {
   }
 
   handleCancelButton = () => {
-    return null
+    console.log('The form will be removed.')
   }
 
   handleInputChange = (e) => {
    
     const object = this.state.object
-    const event = e.target.name
+        const event = e.target.name
 
-    if(event === 'sku'){
-      object.sku = e.target.value
-    }
-    else if(event === 'name'){
-      object.name = e.target.value
-    }
-    else if(event === 'price'){
-      object.price = e.target.value
-    }
-    else if(event === 'productType'){
-      object.category = e.target.value
-      if(object.category === 'default'){
-          object.category = ''
+        if(event === 'sku'){
+            object.sku = e.target.value
         }
-      object.size = '';
-      object.width = '';
-      object.length = '';
-      object.height = '';
-      object.weight = '';
-    }
-    else if(event === 'weight'){
-      object.weight = e.target.value
-    }
-    else if(event === 'size'){
-      object.size = e.target.value
-    }
-    else if(event === 'width'){
-      object.width = e.target.value
-    }
-    else if(event === 'length'){
-      object.length = e.target.value
-    }
-    else if(event === 'height'){
-      object.height = e.target.value
-    }
+        else if(event === 'name'){
+            object.name = e.target.value
+        }
+        else if(event === 'price'){
+            object.price = e.target.value
+        }
+        else if(event === 'productType'){
+            object.category = e.target.value
+            if(object.category === 'default'){
+              object.category = ''
+            }
+            object.size = '';
+            object.width = '';
+            object.length = '';
+            object.height = '';
+            object.weight = '';
+        }
+        else if(event === 'weight'){
+          object.weight = e.target.value
+        }
+        else if(event === 'size'){
+          object.size = e.target.value
+        }
+        else if(event === 'width'){
+          object.width = e.target.value
+        }
+        else if(event === 'length'){
+          object.length = e.target.value
+        }
+        else if(event === 'height'){
+          object.height = e.target.value
+        }
   
 
-    this.setState({
-      object,
-      errorMessage: ''
-    })
+        this.setState({
+            object,
+            errorMessage: ''
+        })
   }
 
   validateFunction = () => {
@@ -189,21 +158,31 @@ class App extends Component {
     return isValidated; 
   }
   
-  handleAddButton = (e) => {    
+  handleAddButton = (e) => {
+    console.log('add')
+    
+
     const index = this.state.objects.map((item) => Number(item.id))
+    console.log(index[index.length-1])
+
     const isValidated = this.validateFunction();
 
+
+
+    
     if(isValidated){
-      const object = this.state.object;
-      const objects = [...this.state.objects]
-      object.id = index[index.length-1]+1; 
-      objects.push(object)
+    const object = this.state.object;
+    const objects = [...this.state.objects]
 
-      this.setState({
-        objects
-      })
+    object.id = index[index.length-1]+1; 
 
-      let formData = new FormData();
+    objects.push(object)
+
+    this.setState({
+      objects
+    })
+
+    let formData = new FormData();
       formData.append('sku', this.state.object.sku)
       formData.append('price', Number(this.state.object.price))
       formData.append('name', this.state.object.name)
@@ -215,17 +194,21 @@ class App extends Component {
       formData.append('height', Number(this.state.object.height))
       formData.append('checked', Number(this.state.object.checked))
 
+      console.log(typeof this.state.object.price)
+
+
 
  
-      axios.post('http://localhost:3306/api/index.php/',formData)
+      axios.post('http://localhost:8888/api/index.php/',formData)
       .then(function (response) {
           //handle success
           console.log(response)
           if(response.status === 200) {
-            console.log("Product added successfully.");
+            alert("Product added successfully.");
           }
       })
       .catch(function (response) {
+          //handle error
           console.log(response)
       });
 
@@ -239,9 +222,11 @@ class App extends Component {
   render() { 
     return (
       <BrowserRouter>
+   
         <Routes>
           <Route path='/' element={<Homepage objects={this.state.objects} change={this.handleCheckboxChange} delete={this.handleDeleteButton}/>}></Route>
           <Route path='addproduct' element={<Addpage object={this.state.object} inputChange={this.handleInputChange} cancel={this.handleCancelButton} save={this.handleAddButton} error={this.state.errorMessage}/>}></Route>
+
         </Routes>
       </BrowserRouter>
 
